@@ -1,0 +1,365 @@
+/**************************************** Réinitialisation de base ********************************************************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/******************************************* Style pour le corps **********************************************************************/
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f0f8ff;
+}
+
+/************************************************** En-tête **************************************************************************/
+header {
+    background-color: #002e60; /* Bleu marine pour un aspect élégant et marin */
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px; 
+}
+
+/***************************************************** Logo **************************************************************************/
+header .logo img {
+    height: 120px; 
+    margin-right: 20px;
+}
+
+
+/********************************************** Menu de navigation *******************************************************************/
+header nav {
+    margin-left: 20px;
+    margin-right: 490px;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #FF6347; 
+}
+
+/********************************************* Ligne verticale et contact ************************************************************/
+header .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 10 px; /* Espacement entre les éléments */
+    margin-left: auto; /* Pousse cette section complètement à droite */
+}
+
+header .contact-info .line-vertical {
+    width: 2px; 
+    height: 80px;
+    background-color: white;
+    margin-right: 10px;
+}
+
+/************************************************** Profile ***************************************************************/
+header .details {
+    text-align: right;
+    font-size: 0.9rem;
+    margin-left: 20px; 
+}
+
+header .profile-pic {
+    text-align: center;
+    position: relative;
+}
+
+header .profile-pic img {
+    width: 60px;  /* Ajustez la taille de l'image */
+    height: 60px;
+    border-radius: 50%;
+}
+
+header .signin-text a {
+    text-decoration: none;  /* Retirer le soulignement du lien */
+    color: white;  /* Couleur du texte en blanc */
+    transition: color 0.3s ease;  /* Transition pour l'effet de changement de couleur */
+    font-size: 12px;  /* Taille du texte */
+    font-weight: bold;
+    cursor: pointer;  /* Curseur indiquant un lien cliquable */
+    margin-top: -5px;  /* Réduit l'espace entre l'image et le texte */
+    line-height: 1;  /* Ajuste la hauteur de ligne pour éviter un espace supplémentaire */
+    display: block;  /* Faire du lien un bloc pour le séparer */
+    text-align: center;  /* Assurez-vous que le texte ne soit pas centré */
+}
+
+
+
+/************************************************** Ligne verticale *******************************************************************/
+.contact-info .line-vertical {
+    width: 2px;
+    height: 80px; /* Hauteur de la ligne verticale */
+    background-color: white; /* Conserve la couleur blanche */
+}
+
+/************************************************* Détails du contact *****************************************************************/
+.contact-info .details {
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.contact-info .details .emoji {
+    font-size: 1rem;
+    margin-right: 4px;
+}
+
+.contact-info .details a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info .details a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+/*********************************************************************************************************************/
+main section p,h1{
+    text-align: center;
+    padding: 10px;
+}
+
+h1{
+    color: #0056b3;
+}
+
+main section{
+    padding: 20px;
+}
+
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-policy ul {
+    list-style: none;
+    padding: 0;
+}
+
+.privacy-policy li {
+    margin-bottom: 1rem;
+}
+
+.privacy-policy label {
+    background: none;
+    color: #0057b8;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    display: block;
+}
+
+.privacy-policy label:hover {
+    text-decoration: underline;
+}
+
+.description {
+    display: none;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked + label + .description {
+    display: block;
+}
+
+
+/****************************************************** Modale *******************************************************/
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal:target {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+}
+
+/* Formulaire */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Boutons */
+.form-group-buttons {
+    display: flex;
+    gap: 10px; /* Espace entre les boutons */
+    justify-content: center; /* Centrer les boutons */
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    flex: 1; /* Rendre les boutons de même largeur */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+/**************************************footer*****************************************************/
+footer {
+    margin-top: 20px;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+}
+
+/* Pied de page */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #002e60;
+    color: #fff;
+    margin-top: 10px;
+}
+
+footer p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    background-color: #FF6347; /* Rouge corail au survol */
+    border-radius: 50%;
+}
+
+footer .social-icons img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.footer-logo img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.footer-sections {
+    display: flex;
+    justify-content: flex-start; /* Aligner les sections à gauche */
+    gap: 50px; /* Espacement entre les colonnes */
+    padding: 20px;
+}
+
+.footer-sections div {
+    flex: 1; /* Permet de répartir uniformément l'espace entre les colonnes */
+}
+
+.footer-sections h1 {
+    font-size: 1.5rem;
+    color: white; /* Bleu marine */
+    margin-bottom: 15px;
+}
+
+.footer-sections ul {
+    list-style: none;
+}
+
+.footer-sections ul li {
+    margin: 10px 0;
+}
+
+.footer-sections ul li a {
+    text-decoration: none;
+    color: #666; /* Gris doux */
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-sections ul li a:hover {
+    color: #FF6347; /* Rouge corail au survol */
+}

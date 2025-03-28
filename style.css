@@ -1,0 +1,624 @@
+/* ========================================================================
+   Réinitialisation des marges et paddings, ainsi que des boîtes flexibles
+======================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================================================
+   Styles généraux pour le corps
+======================================================================== */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f0f8ff; /* Bleu clair apaisant */
+}
+
+/* ========================================================================
+   Styles pour l'en-tête
+======================================================================== */
+header {
+    background-color: #002e60; /* Bleu marine pour un aspect élégant */
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Conteneur de l'en-tête */
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ========================================================================
+   Logo de l'en-tête
+======================================================================== */
+header .logo img {
+    height: 120px; /* Taille du logo */
+    margin-right: 20px;
+}
+
+/* ========================================================================
+   Menu de navigation
+======================================================================== */
+header nav {
+    margin-left: 20px;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    position: relative; /* Nécessaire pour positionner le sous-menu */
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px; /* Meilleur espacement autour des liens */
+    display: block;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #FF6347; /* Couleur de survol */
+    background-color: rgba(255, 255, 255, 0.2); /* Légère indication visuelle */
+}
+header nav ul li ul {
+    list-style: none; /* Retire les puces */
+    position: absolute; /* Positionnement relatif au parent */
+    top: 100%; /* Place le sous-menu directement sous le parent */
+    left: 0; /* Aligne le sous-menu avec le parent */
+    display: none; /* Masque le sous-menu par défaut */
+    background-color: #002e60; /* Couleur uniforme avec l'en-tête */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+    z-index: 1000; /* Assure la visibilité */
+    border-radius: 8px; /* Coins arrondis modernes */
+    padding: 25px; /* Espacement interne */
+    white-space: nowrap; /* Empêche les retours à la ligne */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Effets fluides */
+    opacity: 0; /* Sous-menu transparent par défaut */
+    transform: translateY(12px); /* Décalage initial */
+}
+
+header nav ul li ul li {
+    display: inline-block; /* Affiche les éléments horizontalement */
+    margin: 0 15px; /* Espacement entre les éléments (plus grand) */
+}
+
+header nav ul li ul li a {
+    display: flex; /* Permet l'alignement entre l'icône et le texte */
+    align-items: center; /* Centre verticalement l'icône et le texte */
+    text-decoration: none; /* Retire le soulignement */
+    color: #ffffff; /* Texte blanc pour le contraste */
+    font-size: 16px; /* Taille de police augmentée */
+    font-weight: 600; /* Texte plus épais */
+    padding: 12px 16px; /* Espacement interne pour les liens */
+    border-radius: 6px; /* Coins arrondis pour les liens */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transitions fluides */
+}
+
+header nav ul li ul li a:hover {
+    background-color: #FF4500; /* Couleur de survol (plus vibrante) */
+    color: #ffffff; /* Contraste pour lisibilité */
+}
+
+header nav ul li ul li img {
+    width: 50px; /* Taille de l'icône augmentée */
+    height: 50px; /* Garde une taille uniforme */
+    margin-right: 10px; /* Espacement entre l'icône et le texte */
+}
+
+/* Affiche le sous-menu avec effet fluide au survol */
+header nav ul li:hover ul {
+    display: block; /* Rend le sous-menu visible */
+    opacity: 1; /* Rétablit l'opacité */
+    transform: translateY(0); /* Supprime le décalage initial */
+}
+
+
+
+/* ========================================================================
+   Autres ajustements pour le sous-menu
+======================================================================== */
+header nav ul li {
+    position: relative; /* Nécessaire pour positionner le sous-menu */
+}
+
+header nav ul li ul {
+    pointer-events: none; /* Empêche l'interaction lorsque masqué */
+}
+
+header nav ul li:hover ul {
+    pointer-events: auto; /* Active l'interaction au survol */
+}
+
+
+/* ========================================================================
+   Section contact à droite
+======================================================================== */
+header .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacement entre les éléments */
+    position: absolute; /* Positionnement absolu */
+    right: 20px; /* Distance depuis le bord droit de la page */
+    top: 20px; /* Distance depuis le haut de la page */
+}
+
+
+header .contact-info .line-vertical {
+    width: 2px;
+    height: 80px;
+    background-color: white;
+}
+
+header .profile-pic {
+    text-align: center;
+    position: relative;
+}
+
+header .profile-pic img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Rend l'image circulaire */
+}
+
+header .signin-text a {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+    line-height: 1;
+    display: block;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+header .signin-text a:hover {
+    color: #FF6347;
+}
+
+/* ========================================================================
+   Responsiveness (optionnel, pour écran plus petits)
+======================================================================== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header .contact-info {
+        margin-left: 0;
+        margin-top: 20px;
+        gap: 10px;
+    }
+}
+
+header .contact-info .line-vertical {
+    width: 2px; 
+    height: 80px;
+    background-color: white;
+    margin-right: 10px;
+}
+
+/************************************************** Profile ***************************************************************/
+header .details {
+    text-align: right;
+    font-size: 0.9rem;
+    margin-left: 20px; 
+}
+
+header .profile-pic {
+    text-align: center;
+    position: relative;
+}
+
+header .profile-pic img {
+    width: 60px;  /* Ajustez la taille de l'image */
+    height: 60px;
+    border-radius: 50%;
+}
+
+header .signin-text a {
+    text-decoration: none;  /* Retirer le soulignement du lien */
+    color: white;  /* Couleur du texte en blanc */
+    transition: color 0.3s ease;  /* Transition pour l'effet de changement de couleur */
+    font-size: 12px;  /* Taille du texte */
+    font-weight: bold;
+    cursor: pointer;  /* Curseur indiquant un lien cliquable */
+    margin-top: -5px;  /* Réduit l'espace entre l'image et le texte */
+    line-height: 1;  /* Ajuste la hauteur de ligne pour éviter un espace supplémentaire */
+    display: block;  /* Faire du lien un bloc pour le séparer */
+    text-align: center;  /* Assurez-vous que le texte ne soit pas centré */
+}
+
+
+
+/************************************************** Ligne verticale *******************************************************************/
+.contact-info .line-vertical {
+    width: 2px;
+    height: 80px; /* Hauteur de la ligne verticale */
+    background-color: white; /* Conserve la couleur blanche */
+}
+
+/************************************************* Détails du contact *****************************************************************/
+.contact-info .details {
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.contact-info .details .emoji {
+    font-size: 1rem;
+    margin-right: 4px;
+}
+
+.contact-info .details a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info .details a:hover {
+    text-decoration: underline;
+}
+
+/******************************************* Vidéo en plein écran dans le conteneur ***************************************************/
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 550px; /* Augmentez la hauteur à 600px ou toute autre valeur selon vos besoins */
+    overflow: hidden;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assure que la vidéo couvre tout l'espace sans déformer l'image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 10px;
+}
+
+/**************************************************** Destinations ****************************************************/
+
+.destinations {
+    text-align: center;
+    padding: 50px;
+    background-color: #f9f9f9;
+}
+
+.destinations h2 {
+    font-size: 2.5rem;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+.destinations p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.card button {
+    padding: 10px 20px;
+    background-color: #003366;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.card button:hover {
+    background-color: #0055b3;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+/**************************************************** Toujours inclus ************************************************/
+
+/* Section principale */
+.section {
+    text-align: center;
+    padding: 50px;
+}
+
+.section h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Conteneur principal pour alignement */
+.image-container {
+    display: flex; /* Met les éléments sur une ligne */
+    justify-content: space-between; /* Espace équitable entre les colonnes */
+    align-items: flex-start; /* Aligne les images en haut */
+    gap: 0; /* Élimine tout espace entre les colonnes */
+    margin-top: 20px;
+}
+
+/* Style des éléments individuels */
+.image-container  div {
+    text-align: center;
+    width: 335px; /* Taille fixe pour chaque colonne */
+}
+
+/* Images parfaitement alignées */
+.image-container img {
+    width: 200px;
+    height: 200px; /* Taille identique pour toutes les images */
+    object-fit: contain; /* Maintient le ratio des images */
+   
+}
+
+/* Titres alignés */
+.image-container h1 {
+    font-size: 0.9em;
+    margin: 0 0 5px 0;
+    color: #002855;
+}
+
+/* Description alignée */
+.image-container p {
+    font-size: 0.8em;
+    color: #666;
+    margin: 0;
+}
+
+/**************************************************** Avis ***********************************************************/
+
+/* Section header */
+.avis-section {
+    text-align: center;
+    background-color: #2d4a70;
+    color: white;
+    padding: 50px 20px;
+}
+
+.avis-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.sub-avis p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.sub-avis button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.sub-avis button:hover {
+    background-color: #e65c00;
+}
+
+/****************************************************** Modale *******************************************************/
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal:target {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+}
+
+/* Formulaire */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Boutons */
+.form-group-buttons {
+    display: flex;
+    gap: 10px; /* Espace entre les boutons */
+    justify-content: center; /* Centrer les boutons */
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    flex: 1; /* Rendre les boutons de même largeur */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+/**************************************footer*****************************************************/
+footer {
+    margin-top: 20px;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+}
+
+/* Pied de page */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #002e60;
+    color: #fff;
+    margin-top: 10px;
+}
+
+footer p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    background-color: #FF6347; /* Rouge corail au survol */
+    border-radius: 50%;
+}
+
+footer .social-icons img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.footer-logo img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.footer-sections {
+    display: flex;
+    justify-content: flex-start; /* Aligner les sections à gauche */
+    gap: 50px; /* Espacement entre les colonnes */
+    padding: 20px;
+}
+
+.footer-sections div {
+    flex: 1; /* Permet de répartir uniformément l'espace entre les colonnes */
+}
+
+.footer-sections h1 {
+    font-size: 1.5rem;
+    color: white; /* Bleu marine */
+    margin-bottom: 15px;
+}
+
+.footer-sections ul {
+    list-style: none;
+}
+
+.footer-sections ul li {
+    margin: 10px 0;
+}
+
+.footer-sections ul li a {
+    text-decoration: none;
+    color: #666; /* Gris doux */
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-sections ul li a:hover {
+    color: #FF6347; /* Rouge corail au survol */
+}
+
+

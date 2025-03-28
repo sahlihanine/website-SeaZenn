@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Offres et Promotions de Croisières</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles spécifiques à offres.html */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        /* Section Description */
+        section.description {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 15%;
+        }
+
+        section.description p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        section.description p strong {
+            color: #002855;
+        }
+
+        /* Promotion Section */
+        .promotion {
+            position: relative;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #eef4fa;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .promotion img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .promotion .banner {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #0056b3;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .promotion-content {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background-color: transparent;
+            padding: 10px 15px;
+            text-align: left;
+            color: #fff;
+        }
+
+        .promotion-content p {
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+
+        .promotion-content p:first-of-type {
+            font-weight: bold;
+        }
+
+        /* Row of Images */
+        .images-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .images-row img {
+            width: 32%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Floating Help Button */
+        .help-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0056b3;
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .help-button:hover {
+            background-color: #003f7f;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header identique à index.html -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo SeaZen Journeys">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li class="dropdown">
+                        <a href="#offres">Offres</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="offres.html">
+                                    <img src="img/nos offres.png" alt="Icône nos Offres"> Toutes Nos Offres
+                                </a>
+                            </li>
+                            <li>
+                                <a href="lastminute.html">
+                                    <img src="img/derniere minute.jpg" alt="Icône Dernière minute"> Dernière minute
+                                </a>
+                            </li>
+                            <li>
+                                <a href="queprendre.html">
+                                    <img src="img/que prendre votre croissiere.avif" alt="Icône Conseils croisière"> Que prendre votre croisière
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#offres">Nos Croisières</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="destinations.html">
+                                    <img src="img/dest0.avif" alt="Icône nos Offres"> Destinations
+                                </a>
+                            </li>
+                            <li>
+                                <a href="notreflotte.html">
+                                    <img src="img/flotte0.webp" alt="Icône Dernière minute"> Notre Flotte
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Excursions.html">
+                                    <img src="img/ex0.avif" alt="Icône Conseils croisière"> Excursions
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="vieabord.html">Vie à bord</a>
+                    </li>
+                    <li><a href="reservation.html">Ma réservation</a></li>
+                   
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <div class="line-vertical"></div>
+                <div class="profile-pic">
+                    <img src="img/profile.png" alt="Photo de profil">
+                    <p class="signin-text"><a href="#modal">S'identifier</a></p>
+                </div>
+                <div class="details">
+                    <p>
+                        <span class="emoji">📞</span> <strong>29522272</strong><br>
+                        Lun-Dim : 9h-17h<br>
+                        <a href="NousContacter.html">Nous contacter</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenu principal de offres.html -->
+    <main>
+        <section class="description">
+            <h1>Nos Offres et Promotions de Croisières</h1>
+            <h1>Découvrez nos meilleures offres et promotions de croisières</h1><br>
+            <p>
+                Nos meilleures offres et promotions de croisières 2024-2025 vers des destinations telles que la <strong>Méditerranée</strong>, les <strong>Caraïbes</strong>, les <strong>Antilles</strong>, <strong>l'Europe du Nord</strong> et les <strong>Émirats Arabes Unis</strong> sont à votre portée.
+            </p>
+            <p>
+                Vous souhaitez embarquer en France ? Profitez de nos croisières au départ de <strong>Marseille</strong>, de <strong>Cannes</strong>, du <strong>Havre</strong>, de <strong>Pointe-à-Pitre</strong> ou de <strong>Fort-de-France</strong>. Ne manquez pas nos offres de croisières avec notre forfait <strong>SeaZenn Vols & Croisière</strong> pour voyager dans le monde entier. Et pour faire encore plus d'économies sur les croisières, profitez de nos offres de dernière minute, de nos promotions saisonnières, de nos offres tout inclus, d’avantages exclusifs et de réductions sur certaines croisières.
+            </p>
+        </section>
+        <section class="promotion">
+            <div class="banner">DISPONIBLE AVEC FORFAIT BOISSONS</div>
+            <img src="img/nosoffres1.avif" alt="Croisière d'été 2025">
+            <div class="promotion-content">
+                <p>Croisières d'été 2025</p>
+                <p>Planifiez vos prochaines vacances d'avril à octobre 2025.</p>
+            </div>
+        </section>
+
+        <!-- Section pour 3 images horizontalement -->
+        <div class="images-row">
+            <img src="img/nosoffres2.avif" alt="Croisière Méditerranée">
+            <img src="img/nosoffres3.webp" alt="Croisière Caraïbes">
+            <img src="img/nosoffres4.avif" alt="Croisière Europe du Nord">
+        </div><br>
+        <section class="description">
+            <h1>Un nouveau monde de croisière</h1>
+            <p>Découvrez un monde où l'élégance du design européen rencontre le confort américain à bord de SEAZENN World America, notre nouveau navire dans les Caraïbes</p>
+        </section>
+        <section class="promotion">
+            <div class="banner">NOTRE NOUVEAU FLEURON</div>
+            <img src="img/nosoffres5.avif" alt="Croisière d'été 2025">
+            <div class="promotion-content">
+                <p>Croisières d'été 2025</p>
+                <p>Planifiez vos prochaines vacances d'avril à octobre 2025.</p>
+            </div>
+        </section>
+        <section class="description">
+            <h1>CONSEILS UTILES POUR LA RÉSERVATION D’UNE CROISIÈRE</h1>
+            <p>Il y a toujours une bonne raison de s'offrir une croisière pour les vacances : découvrir des destinations splendides, naviguer entre des cultures fascinantes, se laisser envoûter par la beauté saisissante de</p>
+            <p>l’horizon, des villes et des sites visités, tout en profitant du confort inégalé de SeaZenn Croisières. C’est encore plus intéressant de voyager lorsque vous pouvez partir en croisières tout en profitant des</p>
+            <p>meilleures offres et promotions de croisières, des offres de croisières de dernière minute aux croisières tout compris ou avec forfaits inclus tels que SeaZen Vols & Croisières.</p>
+        </section>
+    </main>
+
+    <!-- Footer identique à index.html -->
+    <footer>
+        <div class="footer-sections">
+            <div>
+                <h1>Informations sur l'entreprise</h1>
+                <ul>
+                    <li><a href="Apropos.html">À propos SeaZenn</a></li>
+                    <li><a href="Partenariats.html">Partenariat</a></li>
+                    <li><a href="confidentialité.html">Confidentialité</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1>Informations de voyage</h1>
+                <ul>
+                    <li><a href="ConditionsTrans.html">Conditions de transport</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1>Actualités et contact</h1>
+                <ul>
+                    <li><a href="NousContacter.html">Nous contacter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <img src="img/logo.png" alt="Logo SeaZen Journeys">
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/181Ag66ex5/"><img src="img/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="img/twitter-icon.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/hanin_sahli?igsh=djNnZ2Y4aDhlcjJ3"><img src="img/instagram-icon.png" alt="Instagram"></a>
+            </div>
+            <p>&copy; 2024 SeaZenn Journeys - All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modale -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>S'identifier</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="firstname">Prénom</label>
+                    <input type="text" id="firstname" name="firstname" placeholder="Votre prénom" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Nom</label>
+                    <input type="text" id="lastname" name="lastname" placeholder="Votre nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Votre email" required>
+                </div>
+                <div class="form-group-buttons">
+                    <a href="#" class="btn">S'identifier</a>
+                    <a href="#" class="btn">S'inscrire</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bouton d'aide flottant -->
+    <a href="NousContacter.html">
+         <div class="help-button">Besoin d’aide ?</div>
+    </a>
+</body>
+</html>

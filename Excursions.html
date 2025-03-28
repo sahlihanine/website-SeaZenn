@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excursions SeaZen</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS externe -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Main Content Styles */
+        .header {
+            text-align: center;
+            padding: 30px;
+            background-color: #ffffff;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header h1 {
+            color: #002060;
+            font-size: 28px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            font-size: 16px;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        .section {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .section h3 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Conteneur principal pour alignement */
+        .image-container {
+            display: flex; /* Met les éléments sur une ligne */
+            justify-content: space-between; /* Espace équitable entre les colonnes */
+            align-items: flex-start; /* Aligne les images en haut */
+            gap: 0; /* Élimine tout espace entre les colonnes */
+            margin-top: 20px;
+        }
+
+        /* Style des éléments individuels */
+        .image-container  div {
+            text-align: center;
+            width: 335px; /* Taille fixe pour chaque colonne */
+        }
+
+        /* Images parfaitement alignées */
+        .image-container img {
+            width: 200px;
+            height: 200px; /* Taille identique pour toutes les images */
+            object-fit: contain; /* Maintient le ratio des images */
+        }
+
+        /* Titres alignés */
+        .image-container h1 {
+            font-size: 0.9em;
+            margin: 0 0 5px 0;
+            color: #002855;
+        }
+
+        /* Description alignée */
+        .image-container p {
+            font-size: 0.8em;
+            color: #666;
+            margin: 0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto; /* Centrer la grille */
+        }
+
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .grid-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .grid-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .banner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background-color: #0A0A47; /* Couleur de la bannière */
+            padding: 2%;
+            border-radius: 5px;
+            width: 1200%;
+            height: 500%;
+            max-width: 1320px;
+        }
+
+        .banner p {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .banner .highlight {
+            color: #FF7F11; /* Couleur orange */
+            font-size: 2rem;
+        }
+
+        .cta-button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #FF7F11; /* Couleur orange */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #FF9E42; /* Orange plus clair */
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            font-size: 14px;
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .card button {
+            margin-top: auto;
+            background-color: #ff6f00;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .card button:hover {
+            background-color: #e65c00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header identique à index.html -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo SeaZen Journeys">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Acceuil</a></li>
+                    <li class="dropdown">
+                        <a href="#offres">Offres </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="offres.html">
+                                    <img src="img/nos offres.png" alt="Icône nos Offres"> Toutes Nos Offres
+                                </a>                                
+                            </li>
+                            <li>
+                                <a href="lastminute.html">
+                                    <img src="img/derniere minute.jpg" alt="Icône Dernière minute"> Dernière minute
+                                </a>
+                            </li>
+                            <li>
+                                <a href="queprendre.html">
+                                    <img src="img/que prendre votre croissiere.avif" alt="Icône Conseils croisière"> Que prendre votre croisière
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#offres">Nos Croissiéres</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="destinations.html">
+                                    <img src="img/dest0.avif" alt="Icône nos Offres"> Destinations
+                                </a>                                
+                            </li>
+                            <li>
+                                <a href="notreflotte.html">
+                                    <img src="img/flotte0.webp" alt="Icône Dernière minute"> Notre Flotte
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Excursions.html">
+                                    <img src="img/ex0.avif" alt="Icône Conseils croisière"> Excursions
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="vieabord.html">Vie a bord  </a>
+                    </li>
+                    <li><a href="reservation.html">Ma réservation</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <div class="line-vertical"></div>
+                <div class="profile-pic">
+                    <img src="img/profile.png" alt="Photo de profil">
+                    <p class="signin-text"><a href="#modal">S'identifier</a></p>
+                </div>
+                <div class="details">
+                    <p>
+                        <span class="emoji">📞</span> <strong>29522272</strong><br>
+                        Lun-Dim : 9h-17h<br>
+                        <a href="NousContacter.html">Nous contacter</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="header">
+        <h1>vos Excursions SeaZen</h1>
+        <p>
+            Une excursion d'une journée peut-elle durer toute une vie ? Avec notre gamme très étendue d'excursions à terre, c'est possible. Que vous préfériez l'aventure, la nature, la culture ou l'histoire, vous pouvez créer des souvenirs inoubliables pour vous et toute la famille. Découvrez la richesse historique de nos destinations à l’occasion d’une excursion Culture et Histoire, admirez des vues à couper le souffle sur une route panoramique, faites monter l'adrénaline avec une excursion Active et Aventure, émerveillez-vous devant la beauté des splendeurs naturelles, relaxez-vous lors d’une excursion Mer et Soleil ou vivez une expérience particulière.
+
+            Nous avons également créé les excursions Explorer, SeaZenn Bike Adventours et SeaZenn PROTECTOURS - des excursions à faible impact - toutes minutieusement sélectionnées (uniquement disponibles sur certains itinéraires de SeaZenn Croisières).
+
+            Ne manquez pas l'opportunité de découvrir des trésors cachés avec les Excursions SeaZenn Yacht Club. En tant qu'hôte privilégié du SeaZenn Yacht Club, vous aurez l'occasion d'explorer des merveilles secrètes à travers nos excursions sur-mesure. Ces expériences inoubliables, guidées par des experts locaux, dépassent les limites des voyages ordinaires, offrant une fenêtre unique et authentique sur chaque destination.
+
+            Réservez votre excursion SeaZenn Croisières en ligne et bénéficiez de nos tarifs prépayés.
+        </p>
+    </div>
+
+    <div class="section">
+        <h3>POURQUOI CHOISIR NOS EXCURSIONS</h3>
+        <div class="image-container">
+            <div>
+                <img src="img/ex1.avif" alt="Image 1">
+                <h1>QUALITÉ ET VALEUR </h1>
+                <p>Des excursions soigneusement organisées</p>
+            </div>
+            <div>
+                <img src="img/ex2.avif" alt="Image 2">
+                <h1>CONFORT ET COMMODITÉ</h1>
+                <p>Nous nous occupons des moindres détails</p>
+            </div>
+            <div>
+                <img src="img/ex3.webp" alt="Image 3">
+                <h1>L’ESPRIT TRANQUILLE</h1>
+                <p>Un sentiment de sécurité à terre</p>
+            </div>
+            <div>
+                <img src="img/ex4.avif" alt="Image 4">
+                <h1>FORFAIT EXCURSIONS EXPLORER</h1>
+                <p>Jusqu'à 3 de nos meilleures excursions à un prix spécial</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner">
+        <p>
+            RÉSERVEZ DÈS MAINTENANT ET ÉCONOMISEZ JUSQU'À 
+            <span class="highlight">20%</span>*
+        </p>
+        <a href="reservation.html">
+            <button class="cta-button">Réserver maintenant</button>
+        </a>
+    </div>
+
+    <div class="container"><br><br>
+        <h1>Notre meilleure sélection d'excursions</h1>
+        <div class="cards">
+            <div class="card">
+                <img src="img/ex5.webp" alt="Croisière en Catamaran">
+                <div class="card-content">
+                    <h3>Croisière en catamaran et déjeuner de langoustes des Caraïbes</h3>
+                    <p><strong>Catégorie :</strong> MOMENTS PRIVILÉGIÉS</p>
+                    <p><strong>Durée :</strong> 6 heures</p>
+                    <p><strong>Code :</strong> ATG36</p>
+                    <a href="reservation.html">
+                        <button>Ajouter à ma croisière</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/ex6.jpg" alt="Aventure au désert">
+                <div class="card-content">
+                    <h3>Aventure au cœur des dunes désertiques</h3>
+                    <p><strong>Catégorie :</strong> SPORT & AVENTURE</p>
+                    <p><strong>Durée :</strong> 3.5 heures</p>
+                    <p><strong>Code :</strong> AUH04</p>
+                    <a href="reservation.html">
+                        <button>Ajouter à ma croisière</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/ex7.webp" alt="Buzios">
+                <div class="card-content">
+                    <h3>Buzios en trolley et à bord d'une goélette</h3>
+                    <p><strong>Catégorie :</strong> MOMENTS PRIVILÉGIÉS</p>
+                    <p><strong>Durée :</strong> 6 heures</p>
+                    <p><strong>Code :</strong> BUZ13</p>
+                    <a href="reservation.html">
+                        <button>Ajouter à ma croisière</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/ex8.avif" alt="Rivière secrète">
+                <div class="card-content">
+                    <h3>L'incroyable rivière secrète et Playa del Carmen</h3>
+                    <p><strong>Catégorie :</strong> MERVEILLES DE LA NATURE</p>
+                    <p><strong>Durée :</strong> 8 heures</p>
+                    <p><strong>Code :</strong> COZ82</p>
+                    <a href="reservation.html">
+                        <button>Ajouter à ma croisière</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header">
+        <h1>VEUILLEZ NOTER</h1>
+        <p>
+            Le programme d'excursions ne fournit qu'un aperçu des visites qui peuvent être organisées dans chaque port et que les descriptions finales des visites seront confirmés à bord. Le programme d'excursions et les itinéraires peuvent varier en fonction des conditions locales et/ou de tout événement imprévu par rapport à l'horaire du jour de l'excursion et/ou être soumis à des modifications en fonction des réglementations locales ou d'autres restrictions. Pour connaître les excursions disponibles pour votre croisière, veuillez vous connecter en cliquant ici.
+
+            Certaines excursions sont très populaires et la disponibilité ne peut donc pas toujours être garantie. Nous vous conseillons donc fortement de réserver à l'avance.
+
+            Pour toutes les destinations, les visites peuvent être proposés en 5 langues (Anglais - Allemand - Français - Espagnol - Italien) selon la disponibilité des guides. La langue finale sera confirmée à bord lors de votre croisière.
+
+            Uniquement pour les destinations en Amérique du Sud, les visites peuvent être proposés en 6 langues (Anglais - Allemand - Français - Espagnol - Italien - Portugais) selon la disponibilité des guides. La langue finale sera confirmée à bord lors de votre croisière.
+        </p>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="img/dest1.avif" alt="Méditerranée">
+            <div class="overlay">Méditerranée</div>
+        </div>
+        <div class="grid-item">
+            <img src="img/dest2.avif" alt="Caraïbes & Antilles">
+            <div class="overlay">Caraïbes & Antilles</div>
+        </div>
+        <div class="grid-item">
+            <img src="img/dest3.avif" alt="Canal de Panama">
+            <div class="overlay">Canal de Panama</div>
+        </div>
+    </div>
+
+    <div class="header">
+        <h1> SEAZEN World Cruise</h1>
+        <p>
+            Qui n'a pas rêvé de faire le tour du monde au moins une fois ? Avec SeaZen World Cruise, vous pouvez réaliser ce rêve ! Choisissez vos odyssées autour du monde en 2026 et élevez votre esprit d'aventure vers de nouveaux sommets. Découvrez la beauté du globe avec SeaZen World Cruise !
+        </p>
+    </div>
+
+    <!-- Footer identique à index.html -->
+    <footer>
+        <div class="footer-sections">
+            <div>
+                <h1>Informations sur l'entreprise</h1>
+                <ul>
+                    <li><a href="Apropos.html">À propos SeaZenn</a></li>
+                    <li><a href="Partenariats.html">Partenariat</a></li>
+                    <li><a href="confidentialité.html">Confidentialité</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1>Informations de voyage</h1>
+                <ul>
+                    <li><a href="ConditionsTrans.html">Conditions de transport</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1>Actualités et contact</h1>
+                <ul>
+                    <li><a href="NousContacter.html">Nous contacter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <img src="img/logo.png" alt="Logo SeaZen Journeys">
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/181Ag66ex5/"><img src="img/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="img/twitter-icon.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/hanin_sahli?igsh=djNnZ2Y4aDhlcjJ3"><img src="img/instagram-icon.png" alt="Instagram"></a>
+            </div>
+            <p>&copy; 2024 SeaZenn Journeys - All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offres de Dernière Minute - SeaZen Journeys</title>
+    <link rel="stylesheet" href="style.css">   
+    <style>
+        /* Styles de base */
+        /* Styles de base */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }    
+
+        .custom-header {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .custom-header h1 {
+            font-size: 24px;
+            color: #001b5e;
+        }
+
+        .custom-header p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styles pour les filtres */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filters select,
+        .filters input[type="date"],
+        .filters button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        .filters button {
+            background-color: #ff6a00;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .filters button:hover {
+            background-color: #e65a00;
+        }
+
+        /* Styles pour les résultats */
+        .results {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .results p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Styles pour le footer */
+        .custom-footer {
+            text-align: right;
+            padding: 20px;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+
+        .custom-footer select {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        /* Styles pour les offres */
+        .offer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .offer-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .offer-details .description {
+            flex: 1 1 30%; /* Réduire encore plus la largeur de la description */
+        }
+
+        .offer-details .image {
+            flex: 1 1 70%; /* Augmenter encore plus la largeur de l'image */
+        }
+
+        .offer-details .image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .details {
+            display: none; /* Masquer la description par défaut */
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .details:target {
+            display: block; /* Afficher la description lorsque ciblée */
+        }
+
+        .details-button {
+            padding: 10px 20px;
+            background-color: #ff6a00;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .details-button:hover {
+            background-color: #e65a00;
+        }
+
+        .close-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #ccc;
+            color: #333;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .close-button:hover {
+            background-color: #bbb;
+        }
+
+        .conditions {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .conditions h2 {
+            font-size: 22px;
+            color: #001b5e;
+            margin-bottom: 15px;
+        }
+
+        .conditions p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo SeaZen Journeys">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Acceuil</a></li>
+                    <li class="dropdown">
+                        <a href="#offres">Offres </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="offres.html">
+                                    <img src="img/nos offres.png" alt="Icône nos Offres"> Toutes Nos Offres
+                                </a>                                
+                            </li>
+                            <li>
+                                <a href="lastminute.html">
+                                    <img src="img/derniere minute.jpg" alt="Icône Dernière minute"> Dernière minute
+                                </a>
+                            </li>
+                            <li>
+                                <a href="queprendre.html">
+                                    <img src="img/que prendre votre croissiere.avif" alt="Icône Conseils croisière"> Que prendre votre croisière
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#offres">Nos Croissiéres</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="destinations.html">
+                                    <img src="img/dest0.avif" alt="Icône nos Offres"> Destinations
+                                </a>                                
+                            </li>
+                            <li>
+                                <a href="notreflotte.html">
+                                    <img src="img/flotte0.webp" alt="Icône Dernière minute"> Notre Flotte
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Excursions.html">
+                                    <img src="img/ex0.avif" alt="Icône Conseils croisière"> Excursions
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="vieabord.html">Vie a bord  </a>
+                    </li>
+                    <li><a href="reservation.html">Ma réservation</a></li>
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <div class="line-vertical"></div>
+                <div class="profile-pic">
+                    <img src="img/profile.png" alt="Photo de profil">
+                    <p class="signin-text"><a href="#modal">S'identifier</a></p>
+                </div>
+                <div class="details">
+                    <p>
+                        <span class="emoji">📞</span> <strong>29522272</strong><br>
+                        Lun-Dim : 9h-17h<br>
+                        <a href="NousContacter.html">Nous contacter</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <div class="custom-header">
+        <h1>OFFRES DE CROISIÈRES EN DERNIÈRE MINUTE</h1>
+        <p>Il n'est jamais trop tard pour en profiter ! Découvrez nos offres "Prêt à embarquer".</p>
+        <p>Une envie soudaine de partir en vacances ? SeaZenn Croisières est là pour vous proposer un choix imbattable de croisières en dernière minute !</p>
+        <p>Nos offres de dernières minutes sont vraiment irrésistibles et ne seront peut-être pas disponibles pour longtemps, donc nous vous conseillons de réserver au plus vite pour bénéficier d'une croisière au meilleur prix.</p>
+        <p>Alors bouclez votre valise et profitez des toutes dernières cabines disponibles pour des départs imminents !</p>
+    </div>
+
+    <div class="content">
+        <div class="filters">
+            <select>
+                <option>Destinations</option>
+                <option>Méditerranée</option>
+                <option>Antilles</option>
+                <option>Europe du Nord</option>
+                <option>Asie</option>
+                <option>Amérique du Sud</option>
+                <option>Afrique</option>
+            </select>
+
+            <input type="date" placeholder="Date de départ">
+
+            <select>
+                <option>Ports de départ</option>
+                <option>Marseille</option>
+                <option>Gênes</option>
+                <option>Barcelone</option>
+                <option>Miami</option>
+                <option>Venise</option>
+            </select>
+
+            <button>Chercher</button>
+        </div>
+
+        <div class="results">
+            <p>Itinéraires sélectionnés pour vous : 25</p>
+        </div>
+    </div>
+
+    <div class="custom-footer">
+        <label for="sort">Trier par : </label>
+        <select id="sort">
+            <option>Prix croissant</option>
+            <option>Prix décroissant</option>
+        </select>
+    </div>
+
+    <div class="content">
+        <div class="offer">
+            <div class="offer-details">
+                <div class="description">
+                    <h2>Europe du Nord, 7 Nuits</h2>
+                    <p><strong>SeaZenn Preziosa</strong></p>
+                    <p><strong>Port de départ :</strong> Le Havre (Paris)</p>
+                    <p><strong>Port de débarquement :</strong> Le Havre (Paris)</p>
+                    <p><strong>Dates de départ :</strong> 02 Janv '25 | 16 Janv '25</p>
+                    <p>
+                        <strong>Tarif croisière à partir de :</strong> <span style="color: #001b5e; font-size: 24px;">335 dt</span> p.p.<br>
+                        <small>+ Frais de service hôtelier obligatoires (84 dt)</small>
+                    </p>
+                    <p>
+                        <strong>Prix total :</strong> <span style="color: #ff6a00; font-size: 28px;">419 dt</span> p.p.<br>
+                        <small>Prix par adulte, taxes portuaires incluses</small>
+                    </p>
+                    <a href="#details1" class="details-button">Voir les détails</a>
+                    <div id="details1" class="details">
+                        <p>Description détaillée de la croisière :</p>
+                        <ul>
+                            <li>Visitez des ports emblématiques comme Hambourg et Rotterdam.</li>
+                            <li>Profitez des installations luxueuses du SeaZenn Preziosa.</li>
+                            <li>Dînez dans des restaurants gastronomiques.</li>
+                            <li>Divertissements à bord : spectacles, casinos, et bien plus encore.</li>
+                        </ul>
+                        <a href="#" class="close-button">Fermer</a>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="img/last1.avif" alt="Europe du Nord Croisière">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="offer">
+            <div class="offer-details">
+                <div class="description">
+                    <h2>Europe du Nord, 7 Nuits</h2>
+                    <p><strong>SeaZenn Preziosa</strong></p>
+                    <p><strong>Port de départ :</strong> Le Havre (Paris)</p>
+                    <p><strong>Port de débarquement :</strong> Le Havre (Paris)</p>
+                    <p><strong>Dates de départ :</strong> 02 Janv '25 | 16 Janv '25</p>
+                    <p>
+                        <strong>Tarif croisière à partir de :</strong> <span style="color: #001b5e; font-size: 24px;">335 dt</span> p.p.<br>
+                        <small>+ Frais de service hôtelier obligatoires (84 dt)</small>
+                    </p>
+                    <p>
+                        <strong>Prix total :</strong> <span style="color: #ff6a00; font-size: 28px;">419 dt</span> p.p.<br>
+                        <small>Prix par adulte, taxes portuaires incluses</small>
+                    </p>
+                    <a href="#details2" class="details-button">Voir les détails</a>
+                    <div id="details2" class="details">
+                        <p>Description détaillée de la croisière :</p>
+                        <ul>
+                            <li>Visitez des ports emblématiques comme Hambourg et Rotterdam.</li>
+                            <li>Profitez des installations luxueuses du SeaZenn Preziosa.</li>
+                            <li>Dînez dans des restaurants gastronomiques.</li>
+                            <li>Divertissements à bord : spectacles, casinos, et bien plus encore.</li>
+                        </ul>
+                        <a href="#" class="close-button">Fermer</a>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="img/last2.avif" alt="Europe du Nord Croisière">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="offer">
+            <div class="offer-details">
+                <div class="description">
+                    <h2>Méditerranée, 10 Nuits</h2>
+                    <p><strong>SeaZenn Fantasia</strong></p>
+                    <p><strong>Port de départ :</strong> Marseille</p>
+                    <p><strong>Port de débarquement :</strong> Marseille</p>
+                    <p><strong>Dates de départ :</strong> 15 Juin '25 | 25 Juin '25</p>
+                    <p>
+                        <strong>Tarif croisière à partir de :</strong> <span style="color: #001b5e; font-size: 24px;">450 dt</span> p.p.<br>
+                        <small>+ Frais de service hôtelier obligatoires (90 dt)</small>
+                    </p>
+                    <p>
+                        <strong>Prix total :</strong> <span style="color: #ff6a00; font-size: 28px;">540 dt</span> p.p.<br>
+                        <small>Prix par adulte, taxes portuaires incluses</small>
+                    </p>
+                    <a href="#details3" class="details-button">Voir les détails</a>
+                    <div id="details3" class="details">
+                        <p>Description détaillée de la croisière :</p>
+                        <ul>
+                            <li>Explorez des destinations emblématiques comme Barcelone, Naples et Palma de Majorque.</li>
+                            <li>Profitez des luxueuses installations du SeaZenn Fantasia.</li>
+                            <li>Dînez dans des restaurants gastronomiques avec vue sur la mer.</li>
+                            <li>Divertissements à bord : spectacles, piscines, spa et bien plus encore.</li>
+                        </ul>
+                        <a href="#" class="close-button">Fermer</a>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="img/last3.webp" alt="Méditerranée Croisière">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="conditions">
+            <h2>Conditions</h2>
+            <p>Le prix, indiqué par personne, comprend : la croisière au départ du port d’embarquement mentionné ci-dessus et l’itinéraire sélectionné, l’hébergement en base cabine double intérieure et ambiance “Bella”. La pension complète à bord, les taxes et charges portuaires, les frais de service hôtelier obligatoires inclus.</p>
+            <p>Tarifs valables pour toute nouvelle réservation jusqu’au départ du navire, sous réserve de disponibilité. Les prix des croisières sont des tarifs “à partir de”, par personne et par croisière, ils comprennent les taxes et charges portuaires. Le prix total comprend les frais de service hôtelier, par personne, sur base d’une occupation double standard. Les frais de service hôtelier sont obligatoires et font partie intégrante du prix total. Les frais de service hôtelier ne s’appliquent pas aux enfants de moins de 2 ans au moment du départ de la croisière.</p>
+            <p>Les prix ne comprennent pas le transport le cas échéant, les forfaits, les exclusions lors des excursions, les assurances optionnelles, les frais de formalités et les achats personnels.</p>
+            <p>Cumulable avec la réduction HSC Voyagers Club.</p>
+            <p>Pour connaître l’ensemble des conditions de réservation, consultez les Conditions Particulières de Réservation.</p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-sections">
+            <div>
+                <h1>Informations sur l'entreprise</h1>
+                <ul>
+                    <li><a href="Apropos.html">À propos SeaZenn</a></li>
+                    <li><a href="Partenariats.html">Partenariat</a></li>
+                    <li><a href="confidentialité.html">Confidentialité</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1>Informations de voyage</h1>
+                <ul>
+                    <li><a href="ConditionsTrans.html">Conditions de transport</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1>Actualités et contact</h1>
+                <ul>
+                    <li><a href="NousContacter.html">Nous contacter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <img src="img/logo.png" alt="Logo SeaZen Journeys">
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/181Ag66ex5/"><img src="img/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="img/twitter-icon.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/hanin_sahli?igsh=djNnZ2Y4aDhlcjJ3"><img src="img/instagram-icon.png" alt="Instagram"></a>
+            </div>
+            <p>&copy; 2024 SeaZenn Journeys - All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modale -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>S'identifier</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="firstname">Prénom</label>
+                    <input type="text" id="firstname" name="firstname" placeholder="Votre prénom" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Nom</label>
+                    <input type="text" id="lastname" name="lastname" placeholder="Votre nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Votre email" required>
+                </div>
+                <div class="form-group-buttons">
+                    <a href="#" class="btn">S'identifier</a>
+                    <a href="#" class="btn">S'inscrire</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

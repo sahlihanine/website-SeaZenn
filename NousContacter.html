@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nous Contacter</title>
+        <link rel="stylesheet" href="contact.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- En-tête avec le logo, menu de navigation, et section contact -->
+        <header>
+            <div class="header-container">
+                <div class="logo">
+                    <img src="img/logo.png" alt="Logo SeaZen Journeys">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Acceuil</a></li>
+                        <li class="dropdown">
+                            <a href="#offres">Offres </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="offres.html">
+                                        <img src="img/nos offres.png" alt="Icône nos Offres"> Toutes Nos Offres
+                                    </a>                                
+                                </li>
+                                <li>
+                                    <a href="lastminute.html">
+                                        <img src="img/derniere minute.jpg" alt="Icône Dernière minute"> Dernière minute
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="queprendre.html">
+                                        <img src="img/que prendre votre croissiere.avif" alt="Icône Conseils croisière"> Que prendre votre croisière
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#offres">Nos Croissiéres</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="destinations.html">
+                                        <img src="img/dest0.avif" alt="Icône nos Offres"> Destinations
+                                    </a>                                
+                                </li>
+                                <li>
+                                    <a href="notreflotte.html">
+                                        <img src="img/flotte0.webp" alt="Icône Dernière minute"> Notre Flotte
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="Excursions.html">
+                                        <img src="img/ex0.avif" alt="Icône Conseils croisière"> Excursions
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="vieabord.html">Vie a bord  </a>
+                        </li>
+                        <li><a href="reservation.html">Ma réservation</a></li>
+                        
+                    </ul>
+                </nav>
+                <div class="contact-info2">
+                    <div class="line-vertical"></div>
+                    <div class="profile-pic">
+                        <img src="img/profile.png" alt="Photo de profil">
+                        <p class="signin-text"><a href="#modal">S'identifier</a></p>
+                    </div>
+                    <div class="details">
+                        <p>
+                            <span class="emoji">📞</span> <strong>29522272</strong><br>
+                            Lun-Dim : 9h-17h<br>
+                            <a href="NousContacter.html">Nous contacter</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <h1>Service de Réservation</h1>
+        <h3>Si vous avez besoin d'assistance, appelez-nous !</h3>
+
+        <main>
+            <section class="form-section">
+                <form>
+                    <div class="form-group">
+                        <label for="firstname">Prénom *</label>
+                        <input type="text" id="firstname" name="firstname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Nom *</label>
+                        <input type="text" id="lastname" name="lastname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-email">Confirmation de l'e-mail *</label>
+                        <input type="email" id="confirm-email" name="confirm-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Numéro de téléphone *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+33" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservation">Numéro de réservation</label>
+                        <input type="text" id="reservation" name="reservation">
+                    </div>
+                    <div class="form-group">
+                        <label for="birthdate">Date de naissance</label>
+                        <input type="date" id="birthdate" name="birthdate">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-type">Type de demande *</label>
+                        <select id="request-type" name="request-type" required>
+                            <option value="">Sélectionnez...</option>
+                            <option value="general">Générale</option>
+                            <option value="reservation">Réservation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="object">Objet *</label>
+                        <input type="text" id="object" name="object" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="boarding-date">Date d'embarquement</label>
+                        <input type="date" id="boarding-date" name="boarding-date">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" style="width: 100%;" required></textarea>
+                    </div>
+                </form>
+            </section>
+                    <div>
+                        <input type="checkbox" id="privacy" name="privacy" required> <label for="privacy">J'ai lu la <a href="confidentialité.html">Politique de Confidentialité</a> *</label> 
+                    </div>
+                    <label for="modal-toggle" class="submit-button">Envoyer</label>
+                
+            
+        </main>
+            <h1>Informations de Contact</h1>
+            <section class="contact-info">
+                <div>
+                    <h3>Numéro de Téléphone</h3>
+                    <p>25 255 272</p>
+                </div>
+                <div>
+                    <h3>Heures d'ouverture</h3>
+                    <p>LUN-VEN 09-19H<br>SAM 09-17H</p>
+                </div>
+                <div>
+                    <h3>Adresse</h3>
+                    <p>El Menzah<br>Belveder 1002 (Tunis)</p>
+                </div>
+                <div>
+                    <h3>Soins SeaZenn Croisières</h3>
+                    <p>Pour demander une assistance médicale sur des vols réservés par SeaZenn Croisières : contactez la compagnie concernée.</p>
+                </div>
+            </section>
+
+        <!-- Pied de page -->
+        <footer>
+            <div class="footer-sections">
+                <div>
+                    <h1>Informations sur l'entreprise</h1>
+                    <ul>
+                        <li><a href="Apropos.html">À propos SeaZenn</a></li>
+                        <li><a href="Partenariats.html">Partenariat</a></li>
+                        <li><a href="confidentialité.html">Confidentialité</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h1>Informations de voyage</h1>
+                    <ul>
+                        <li><a href="ConditionsTrans.html">Conditions de transport</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h1>Actualités et contact</h1>
+                    <ul>
+                        <li><a href="#">Nous contacter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                    <img src="img/logo.png" alt="Logo SeaZen Journeys">
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/181Ag66ex5/"><img src="img/facebook-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="img/twitter-icon.png" alt="Twitter"></a>
+                    <a href="https://www.instagram.com/hanin_sahli?igsh=djNnZ2Y4aDhlcjJ3"><img src="img/instagram-icon.png" alt="Instagram"></a>
+                </div>
+                <p>&copy; 2024 SeaZenn Journeys - All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- Boîte modale -->
+        <input type="checkbox" id="modal-toggle" hidden>
+        <div class="modal">
+            <div class="modal-content">
+                <h2>Confirmation</h2>
+                <p>Votre demande a été envoyée avec succès !</p>
+                <label for="modal-toggle" class="close-modal">OK</label>
+            </div>
+        </div>
+
+
+        <!-- Modale -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <a href="#" class="close">&times;</a>
+                <h2>S'identifier</h2>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="firstname">Prénom</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="Votre prénom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Nom</label>
+                        <input type="text" id="lastname" name="lastname" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="form-group-buttons">
+                        <a href="#" class="btn">S'identifier</a>
+                        <a href="#" class="btn">S'inscrire</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </body>
+</html>

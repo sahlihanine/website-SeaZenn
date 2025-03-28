@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vie à Bord - SeaZen Journeys</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles spécifiques à la page Vie à Bord */
+        .image-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px auto;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .image-half {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 500px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .image-half img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .offer-text {
+            padding: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: rgba(0, 32, 96, 0.1);
+            border-radius: 0 0 8px 8px;
+            width: 100%;
+        }
+
+        .restaurant-section {
+            text-align: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .restaurant-section h1 {
+            color: #002060;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .restaurant-section p {
+            color: #444;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .grid-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 32, 96, 0.8);
+            color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 1rem;
+            z-index: 1;
+        }
+
+        .text-overlay.orange {
+            background-color: #ff6a00;
+        }
+
+        .grid-item p {
+            text-align: center;
+            margin: 10px 0 0;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .fun-pass-section {
+            background: linear-gradient(90deg, #004080, #0055b3);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fun-pass-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        p {
+            font-size: 1.1rem;
+            font-weight: bold;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #ff4500;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+            background-color: #e03e00;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #details-section:target {
+            display: block;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 40px 20px;
+            text-align: left;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+        }
+
+        #details-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #004080;
+        }
+
+        #details-section p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo SeaZen Journeys">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Acceuil</a></li>
+                    <li class="dropdown">
+                        <a href="#offres">Offres </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="offres.html">
+                                    <img src="img/nos offres.png" alt="Icône nos Offres"> Toutes Nos Offres
+                                </a>                                
+                            </li>
+                            <li>
+                                <a href="lastminute.html">
+                                    <img src="img/derniere minute.jpg" alt="Icône Dernière minute"> Dernière minute
+                                </a>
+                            </li>
+                            <li>
+                                <a href="queprendre.html">
+                                    <img src="img/que prendre votre croissiere.avif" alt="Icône Conseils croisière"> Que prendre votre croisière
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#offres">Nos Croissiéres</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="destinations.html">
+                                    <img src="img/dest0.avif" alt="Icône nos Offres"> Destinations
+                                </a>                                
+                            </li>
+                            <li>
+                                <a href="notreflotte.html">
+                                    <img src="img/flotte0.webp" alt="Icône Dernière minute"> Notre Flotte
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Excursions.html">
+                                    <img src="img/ex0.avif" alt="Icône Conseils croisière"> Excursions
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="vieabord.html">Vie a bord  </a>
+                    </li>
+                    <li><a href="reservation.html">Ma réservation</a></li>
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <div class="line-vertical"></div>
+                <div class="profile-pic">
+                    <img src="img/profile.png" alt="Photo de profil">
+                    <p class="signin-text"><a href="#modal">S'identifier</a></p>
+                </div>
+                <div class="details">
+                    <p>
+                        <span class="emoji">📞</span> <strong>29522272</strong><br>
+                        Lun-Dim : 9h-17h<br>
+                        <a href="NousContacter.html">Nous contacter</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <section class="restaurant-section">
+        <h1>INTERNET & APPLICATION</h1>
+        <p>
+            Tout au long de votre croisière, partagez les moments privilégiés avec vos amis et votre famille et faites savoir à tous que vous passez du bon temps, grâce au wifi à bord assuré par le nouveau et puissant système d'accès Internet par satellite installé sur l'ensemble de notre flotte.
+        </p>
+    </section>
+    <div class="image-row">
+        <div class="image-half">
+            <img src="img/vie1.avif" alt="Croisière Caraïbes">
+            <div class="offer-text">
+                <p>Wifi</p>
+            </div>
+        </div>
+        <div class="image-half">
+            <img src="img/vie2.avif" alt="Croisière Europe du Nord">
+            <div class="offer-text">
+                <p>Press Reader Application</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Restauration et Boissons -->
+    <section class="restaurant-section">
+        <h1>RESTAURATION ET BOISSONS</h1>
+        <p>Découvrez les dîners en mer les plus raffinés</p>
+        <p>
+            Lors d'une croisière SeaZenn, le voyage commence à bord. Des plats asiatiques authentiques aux succulents steaks en passant par les dîners à la table du chef, nos restaurants de spécialités proposent une cuisine internationale variée.
+        </p>
+        <p>
+            Choisissez votre expérience gastronomique dans nos <strong>restaurants exclusifs</strong> et savourez un repas gastronomique mémorable pendant votre croisière... le tout à un prix très spécial. Réservez maintenant et profitez de nos tarifs exceptionnels.
+        </p>
+
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="img/vie3.avif" alt="Buffet et Restaurants">
+                <p>Buffet et Restaurants</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie4.avif" alt="Forfaits dîner">
+                <a href="reservation.html">
+                    <div class="text-overlay orange">RÉSERVEZ MAINTENANT et économisez jusqu'à 27%</div>
+                </a>
+                <p>Forfaits dîner en croisière et restaurants de spécialités</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie5.webp" alt="Forfaits Boissons">
+                <a href="reservation.html">
+                    <div class="text-overlay orange">RÉSERVEZ MAINTENANT et économisez jusqu'à 27%</div>
+                </a>
+                <p>Forfaits Boissons</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie6.webp" alt="Plat gastronomique">
+                <p>Desserts et Glace</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie7.webp" alt="Dîner romantique">
+                <p>Bars de jour et de nuit</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie8.webp" alt="Dîner romantique">
+                <p>Repas Enfants</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divertissement -->
+    <section class="restaurant-section">
+        <h1>Divertissement</h1>
+        <p>
+            Vivez de nouvelles expériences amusantes 24h/24 à bord d'un navire SeaZenn Croisières, des activités enrichissantes intérieures et extérieures pendant la journée aux divertissements magiques de nuit. Avec des cinémas, des tournois, des compétitions, des activités de plein-air amusantes pour toute la famille ajoutées aux propositions divertissantes en soirée, vous aurez du mal à choisir.
+        </p>
+        <p>
+            Ne manquez pas notre toute nouvelle expérience de divertissement et profitez d'une extraordinaire combinaison de sons, de lumières, d'artistes et d'effets spéciaux qui vous donneront l'impression de faire partie du spectacle. Découvrez Carousel Productions At Sea : un tout nouveau concept de divertissement mêlant acrobaties à couper le souffle, danse et musique live pour créer une production originale exclusive spécialement conçue pour les navires SeaZenn Croisières.
+        </p>
+        <p>
+            À bord d'une croisière SeaZenn, vous pourrez profiter du glamour d'une nuit au casino ou vivre les sensations fortes du SeaZenn Formula Racer, vous immerger dans le cinéma 4D et jouer au bowling en famille ou entre amis. Nous vous offrons la magie, il ne vous reste plus qu'à choisir !
+            Cliquez ci-dessous pour voir toutes nos options de divertissement et découvrez le forfait Fun Pass pour profiter de nos tarifs de pré-réservation en ligne.
+        </p>
+
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="img/vie9.webp" alt="Spectacles">
+                <p>Spectacles</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie10.webp" alt="Activités Extérieures">
+                <p>Activités Extérieures</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie11.avif" alt="Activités De Jour et de Nuit">
+                <p>Activités De Jour et de Nuit</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie12.avif" alt="Shopping">
+                <p>Shopping</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie13.avif" alt="Photo">
+                <p>Photo</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie14.avif" alt="The Art Wall">
+                <p>The Art Wall</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Croisières pour les familles et les enfants -->
+    <section class="restaurant-section">
+        <h1>Croisières pour les familles et les enfants</h1>
+        <p>
+            Les vacances en famille sont des moments particuliers - un mélange d'amusement, de moments privilégiés en famille et d’instants de qualité pour chacun. Au fil des années, nous avons acquis la réputation d'une compagnie capable de répondre aux besoins de tous et à tout moment, en accordant une attention toute particulière aux enfants, préadolescents et adolescents. Sans oublier les parents et les activités à faire en famille.
+        </p>
+        <p>
+            Réservez votre croisière dès à présent et découvrez pourquoi c'est le Futur de la Croisière.
+        </p>
+
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="img/vie15.avif" alt="Excursions en famille">
+                <p>Excursions en famille</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie16.webp" alt="Repas en famille">
+                <p>Repas en famille</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie17.avif" alt="Kids Clubs & Activités familiales">
+                <p>Kids Clubs & Activités familiales</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie18.avif" alt="Services pour bébés et enfants">
+                <p>Services pour bébés et enfants</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie19.avif" alt="Temps pour les parents">
+                <p>Temps pour les parents</p>
+            </div>
+            <div class="grid-item">
+                <img src="img/vie20.webp" alt="Web Séries">
+                <p>Web Séries</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Fun Pass -->
+    <section class="restaurant-section">
+        <h1>Fun Pass</h1>
+        <p>
+            Plongez dans un monde de divertissement sans fin
+        </p>
+    </section>
+
+    <div class="fun-pass-section">
+        <div class="content">
+            <h1>Le Fun Pass est votre laissez-passer pour l'accès à la zone de divertissement, l'endroit le plus excitant à bord.</h1>
+            <p>ACHETEZ EN LIGNE DÈS MAINTENANT POUR OBTENIR DES CRÉDITS FUN PASS SUPPLÉMENTAIRES À DÉPENSER À BORD, ET PROFITEZ DE 20% DE RÉDUCTION PAR RAPPORT AUX PRIX À BORD.</p>
+            <a href="#details-section" class="button">En savoir plus</a>
+        </div>
+    </div>
+
+    <div id="details-section" class="hidden">
+        <div class="details-content">
+            <h2>Du divertissement sans fin</h2>
+            <p>
+                Tous ceux qui ont embarqué avec SeaZenn savent que les activités amusantes ne manquent pas pour monter à bord de l’un de nos navires.
+                Qu’il s’agisse de spectacles exclusifs ou des parcs aquatiques les plus fascinants et excitants, nous vous mettons au défi de
+                prononcer le mot « Je m’ennuie » pendant des vacances avec SeaZenn.
+            </p>
+            <p>
+                De nombreuses activités et passe-temps sont compris dans le prix de vos vacances, mais il existe d’autres activités amusantes qui
+                entraînent des frais supplémentaires. Afin de vous assurer de profiter au maximum de ces activités supplémentaires, divertissements
+                et attractions, nous avons le SeaZenn Fun Pass.
+            </p>
+            <p>
+                Le Fun Pass vous permet de profiter pleinement de toutes les attractions de la zone de divertissement grâce aux crédits
+                supplémentaires inclus. Lisez la suite pour découvrir les avantages disponibles sur votre navire.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-sections">
+            <div>
+                <h1>Informations sur l'entreprise</h1>
+                <ul>
+                    <li><a href="Apropos.html">À propos SeaZenn</a></li>
+                    <li><a href="Partenariats.html">Partenariat</a></li>
+                    <li><a href="confidentialité.html">Confidentialité</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1>Informations de voyage</h1>
+                <ul>
+                    <li><a href="ConditionsTrans.html">Conditions de transport</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1>Actualités et contact</h1>
+                <ul>
+                    <li><a href="NousContacter.html">Nous contacter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <img src="img/logo.png" alt="Logo SeaZen Journeys">
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/181Ag66ex5/"><img src="img/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="img/twitter-icon.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/hanin_sahli?igsh=djNnZ2Y4aDhlcjJ3"><img src="img/instagram-icon.png" alt="Instagram"></a>
+            </div>
+            <p>&copy; 2024 SeaZenn Journeys - All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modale -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>S'identifier</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="firstname">Prénom</label>
+                    <input type="text" id="firstname" name="firstname" placeholder="Votre prénom" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Nom</label>
+                    <input type="text" id="lastname" name="lastname" placeholder="Votre nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Votre email" required>
+                </div>
+                <div class="form-group-buttons">
+                    <a href="#" class="btn">S'identifier</a>
+                    <a href="#" class="btn">S'inscrire</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

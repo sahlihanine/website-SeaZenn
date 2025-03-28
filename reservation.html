@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gérer ma réservation - SeaZen Journeys</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #003366;
+        }
+
+        .form-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .form-section {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .form-section h2 {
+            font-size: 18px;
+            color: #003366;
+        }
+
+        .form-section p {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .form-section input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-section button {
+            display: block;
+            width: 100%;
+            background-color: #ff6600;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-section button:hover {
+            background-color: #cc5200;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .features li:before {
+            content: '✔';
+            color: #ff6600;
+            margin-right: 10px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .cta-buttons button {
+            flex: 1;
+        }
+
+        .terms {
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .terms a {
+            color: #ff6600;
+            text-decoration: none;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
+        /* Style de la modale */
+        .modal {
+            display: none; /* Cachée par défaut */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Afficher la modale lorsqu'elle est ciblée */
+        .modal:target {
+            display: flex;
+        }
+
+        /* Contenu de la modale */
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            position: relative;
+        }
+
+        /* Bouton de fermeture */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            text-decoration: none;
+            color: #000;
+        }
+
+        /* Style des boutons dans la modale */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6600;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-color: #cc5200;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- En-tête avec le logo, menu de navigation, et section contact -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo SeaZen Journeys">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Acceuil</a></li>
+                    <li class="dropdown">
+                        <a href="#offres">Offres </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="offres.html">
+                                    <img src="img/nos offres.png" alt="Icône nos Offres"> Toutes Nos Offres
+                                </a>                                
+                            </li>
+                            <li>
+                                <a href="lastminute.html">
+                                    <img src="img/derniere minute.jpg" alt="Icône Dernière minute"> Dernière minute
+                                </a>
+                            </li>
+                            <li>
+                                <a href="queprendre.html">
+                                    <img src="img/que prendre votre croissiere.avif" alt="Icône Conseils croisière"> Que prendre votre croisière
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#offres">Nos Croissiéres</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="destinations.html">
+                                    <img src="img/dest0.avif" alt="Icône nos Offres"> Destinations
+                                </a>                                
+                            </li>
+                            <li>
+                                <a href="notreflotte.html">
+                                    <img src="img/flotte0.webp" alt="Icône Dernière minute"> Notre Flotte
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Excursions.html">
+                                    <img src="img/ex0.avif" alt="Icône Conseils croisière"> Excursions
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="vieabord.html">Vie a bord  </a>
+                    </li>
+                    <li><a href="reservation.html">Ma réservation</a></li>
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <div class="line-vertical"></div>
+                <div class="profile-pic">
+                    <img src="img/profile.png" alt="Photo de profil">
+                    <p class="signin-text"><a href="#modal">S'identifier</a></p>
+                </div>
+                <div class="details">
+                    <p>
+                        <span class="emoji">📞</span> <strong>29522272</strong><br>
+                        Lun-Dim : 9h-17h<br>
+                        <a href="NousContacter.html">Nous contacter</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <div class="container">
+        <h1>GÉRER MA RÉSERVATION</h1>
+        <p style="text-align: center;">Veuillez sélectionner une option ci-dessous pour améliorer votre croisière.</p>
+        <div class="form-wrapper">
+            <!-- Section 1: Avec numéro de réservation -->
+            <div class="form-section">
+                <h2>AVEC VOTRE NUMÉRO DE RÉSERVATION</h2>
+                <form>
+                    <input type="text" placeholder="Numéro de réservation *" required>
+                    <input type="text" placeholder="Prénom *" required>
+                    <input type="text" placeholder="Nom de famille *" required>
+                    <button type="submit">ALLER</button>
+                </form>
+                <p class="terms">En cliquant sur Aller, vous acceptez les <a href="#">Conditions générales</a>.</p>
+            </div>
+
+            <!-- Section 2: Avec compte SeaZenn -->
+            <div class="form-section">
+                <h2>AVEC VOTRE COMPTE SeaZenn</h2>
+                <ul class="features">
+                    <li>Mettez à jour vos informations personnelles</li>
+                    <li>Complétez votre paiement</li>
+                    <li>Rajoutez des excursions, boissons et autres forfaits</li>
+                    <li>Visualisez tous les détails de la croisière et l'itinéraire</li>
+                    <li>Complétez l'enregistrement en ligne</li>
+                    <li>Rejoignez notre SeaZenn Voyagers Club pour cumuler des points et avoir des avantages</li>
+                </ul>
+                <!-- Bouton pour ouvrir la modale -->
+                <div class="cta-buttons">
+                    <a href="#modal" class="btn">S'identifier</a> <!-- Lien vers la modale -->
+                    <a href="s'inscrire.html" class="btn">S'inscrire maintenant</a> <!-- Lien vers s'inscrire.html -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-sections">
+            <div>
+                <h1>Informations sur l'entreprise</h1>
+                <ul>
+                    <li><a href="Apropos.html">À propos SeaZenn</a></li>
+                    <li><a href="Partenariats.html">Partenariat</a></li>
+                    <li><a href="confidentialité.html">Confidentialité</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1>Informations de voyage</h1>
+                <ul>
+                    <li><a href="ConditionsTrans.html">Conditions de transport</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1>Actualités et contact</h1>
+                <ul>
+                    <li><a href="NousContacter.html">Nous contacter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <img src="img/logo.png" alt="Logo SeaZen Journeys">
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/181Ag66ex5/"><img src="img/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="img/twitter-icon.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/hanin_sahli?igsh=djNnZ2Y4aDhlcjJ3"><img src="img/instagram-icon.png" alt="Instagram"></a>
+            </div>
+            <p>&copy; 2024 SeaZenn Journeys - All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modale -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>S'identifier</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="firstname">Prénom</label>
+                    <input type="text" id="firstname" name="firstname" placeholder="Votre prénom" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Nom</label>
+                    <input type="text" id="lastname" name="lastname" placeholder="Votre nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Votre email" required>
+                </div>
+                <div class="form-group-buttons">
+                    <a href="#" class="btn">S'identifier</a>
+                    <a href="#" class="btn">S'inscrire</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <a href="NousContacter.html">
+        <div class="help-button">Besoin d’aide ?</div>
+   </a>
+</body>
+</html>

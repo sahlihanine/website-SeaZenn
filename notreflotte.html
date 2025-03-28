@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Flotte</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS externe -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Main Content Styles */
+        .header {
+            text-align: center;
+            padding: 30px;
+            background-color: #ffffff;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header h1 {
+            color: #002060;
+            font-size: 28px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            font-size: 16px;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .grid-item {
+            text-align: center;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .grid-item p {
+            margin: 0;
+            padding: 10px;
+            background-color: #eee;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .eco-navires .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 100px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .eco-navires .image {
+            flex: 2; /* Augmente la proportion de l'image */
+            min-width: 700px; /* Augmente la largeur minimale */
+        }
+
+        .eco-navires .content {
+            flex: 3; /* Réduit légèrement la proportion du texte */
+            padding: 20px;
+        }
+
+        .eco-navires .image img {
+            width: 100%;
+            height: 50%;
+            border-radius: 5px;
+            object-fit: cover; /* Garde les proportions tout en occupant l'espace */
+        }
+
+        .eco-navires .content h1 {
+            font-size: 2rem;
+            color: #1a1a72;
+            margin-bottom: 10px;
+        }
+
+        .eco-navires .content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .eco-navires .content p {
+            margin-bottom: 15px;
+        }
+
+        .eco-navires .content strong {
+            color: #1a1a72;
+        }
+
+        .eco-navires .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: #1a1a72;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid #1a1a72;
+        }
+
+        .eco-navires .read-more:hover {
+            color: #333;
+            border-bottom: 2px solid #333;
+        }
+
+        .section {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .section h3 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Conteneur principal pour alignement */
+        .image-container {
+            display: flex; /* Met les éléments sur une ligne */
+            justify-content: space-between; /* Espace équitable entre les colonnes */
+            align-items: flex-start; /* Aligne les images en haut */
+            gap: 0; /* Élimine tout espace entre les colonnes */
+            margin-top: 20px;
+        }
+
+        /* Style des éléments individuels */
+        .image-container  div {
+            text-align: center;
+            width: 335px; /* Taille fixe pour chaque colonne */
+        }
+
+        /* Images parfaitement alignées */
+        .image-container img {
+            width: 200px;
+            height: 200px; /* Taille identique pour toutes les images */
+            object-fit: contain; /* Maintient le ratio des images */
+        }
+
+        /* Titres alignés */
+        .image-container h1 {
+            font-size: 0.9em;
+            margin: 0 0 5px 0;
+            color: #002855;
+        }
+
+        /* Description alignée */
+        .image-container p {
+            font-size: 0.8em;
+            color: #666;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header identique à index.html -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo SeaZen Journeys">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Acceuil</a></li>
+                    <li class="dropdown">
+                        <a href="#offres">Offres </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="offres.html">
+                                    <img src="img/nos offres.png" alt="Icône nos Offres"> Toutes Nos Offres
+                                </a>                                
+                            </li>
+                            <li>
+                                <a href="lastminute.html">
+                                    <img src="img/derniere minute.jpg" alt="Icône Dernière minute"> Dernière minute
+                                </a>
+                            </li>
+                            <li>
+                                <a href="queprendre.html">
+                                    <img src="img/que prendre votre croissiere.avif" alt="Icône Conseils croisière"> Que prendre votre croisière
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#offres">Nos Croissiéres</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="destinations.html">
+                                    <img src="img/dest0.avif" alt="Icône nos Offres"> Destinations
+                                </a>                                
+                            </li>
+                            <li>
+                                <a href="notreflotte.html">
+                                    <img src="img/flotte0.webp" alt="Icône Dernière minute"> Notre Flotte
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Excursions.html">
+                                    <img src="img/ex0.avif" alt="Icône Conseils croisière"> Excursions
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="vieabord.html">Vie a bord  </a>
+                    </li>
+                    <li><a href="reservation.html">Ma réservation</a></li>
+                
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <div class="line-vertical"></div>
+                <div class="profile-pic">
+                    <img src="img/profile.png" alt="Photo de profil">
+                    <p class="signin-text"><a href="#modal">S'identifier</a></p>
+                </div>
+                <div class="details">
+                    <p>
+                        <span class="emoji">📞</span> <strong>29522272</strong><br>
+                        Lun-Dim : 9h-17h<br>
+                        <a href="NousContacter.html">Nous contacter</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="header">
+        <h1>NOS NAVIRES DE CROISIÈRE</h1>
+        <p>
+            Alors que nous continuons à développer et à améliorer notre flotte, chaque navire de SeaZen Croisières offre à nos hôtes un large éventail de services.
+            Alliant élégance classique et innovations de pointe, nos navires de croisière proposent ce qu’il y a de mieux en matière de confort, de restauration, d'innovation, de divertissement et de vie à bord. Dotés d’une technologie embarquée qui vise à atténuer notre impact sur la nature, nos navires les plus récents témoignent de notre engagement en faveur d’un tourisme à plus faible impact.
+
+            Sélectionnez, dès à présent, l’un des navires de la flotte de SeaZen Croisières et découvrez une nouvelle manière de parcourir les océans.
+        </p>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="img/flotte1.avif" alt="SeaZen Armonia">
+            <p>SeaZen Armonia</p>
+        </div>
+        <div class="grid-item">
+            <img src="img/flotte2.avif" alt="SeaZen Bellissima">
+            <p>SeaZen Bellissima</p>
+        </div>
+        <div class="grid-item">
+            <img src="img/flotte3.avif" alt="SeaZen Divina">
+            <p>SeaZen Divina</p>
+        </div>
+        <div class="grid-item">
+            <img src="img/flotte4.avif" alt="SeaZen Euribia">
+            <p>SeaZen Euribia</p>
+        </div>
+        <div class="grid-item">
+            <img src="img/flotte5.avif" alt="SeaZen Fantasia">
+            <p>SeaZen Fantasia</p>
+        </div>
+        <div class="grid-item">
+            <img src="img/flotte6.webp" alt="SeaZen Grandiosa">
+            <p>SeaZen Grandiosa</p>
+        </div>
+    </div>
+
+    <div class="header">
+        <h1> DÉCOUVREZ EXPLORA JOURNEYS</h1>
+        <p>
+            Immergez-vous dans l'univers des navires Explora Journeys et laissez-vous séduire par leur design raffiné et leur technologie de pointe. Chaque détail a été pensé pour vous offrir une expérience de voyages en mer d'exception et pour se sentir comme à bord d'un yacht privé, des suites élégantes avec vue sur l'océan aux services personnalisés, en passant par une gastronomie unique, des divertissements variés et des activités de bien-être.
+        </p>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="img/flotte7.avif" alt="SeaZen Armonia">
+        </div>
+        <div class="grid-item">
+            <img src="img/flotte8.avif" alt="SeaZen Bellissima">
+        </div>
+        <div class="grid-item">
+            <img src="img/flotte1.avif" alt="SeaZen Bellissima"><br><br>
+            <p>Explora III</p>
+        </div>
+    </div>
+
+    <section class="eco-navires">
+        <div class="container">
+            <div class="image">
+                <img src="img/flotte9.webp" alt="Récif de corail">
+            </div>
+            <div class="content">
+                <h1>ÉCO NAVIRES</h1>
+                <h2>Des systèmes innovants d'économie d'énergie et de recyclage de l'eau sont installés à bord de nos navires</h2>
+                <p>
+                    Nous respectons profondément les océans du monde entier et, bien que nous fassions naviguer un nombre croissant d’hôtes à travers le monde, nous cherchons continuellement à réduire notre impact sur l’environnement. Grâce à l’utilisation de technologies modernes et de nos actions respectueuses de l’environnement, nous nous efforçons de réduire efficacement l’impact environnemental de nos croisières.
+                </p>
+                <p>
+                    Par conséquent, nous travaillons continuellement à réduire notre impact sur l’environnement et à optimiser nos itinéraires de croisière pour réduire la consommation de carburant.
+                </p>
+                <p>
+                    L’un des moyens d’économiser du carburant est de réduire la résistance de l’eau. SeaZenn Croisières utilise une peinture antisalissures sur les coques de tous ses navires pour prévenir l’encrassement de la coque et <strong>réduire considérablement la traînée</strong>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section">
+        <h3>Certifications</h3>
+        <div class="image-container">
+            <div>
+                <img src="img/cert1.webp" alt="Image 1">
+                <h1>OHSAS 18001</h1>
+                <p>Gestion de la sécurité</p>
+            </div>
+            <div>
+                <img src="img/cert2.webp" alt="Image 2">
+                <h1>ISO 50001</h1>
+                <p>Performance énergétique</p>
+            </div>
+            <div>
+                <img src="img/cert3.webp" alt="Image 3">
+                <h1>ISO 22000</h1>
+                <p>Gestion de la sécurité alimentaire</p>
+            </div>
+            <div>
+                <img src="img/cert4.webp" alt="Image 4">
+                <h1>ISO 14001</h1>
+                <p>Gestion environnementale</p>
+            </div>
+        </div>
+    </div><br>
+
+    <!-- Footer identique à index.html -->
+    <footer>
+        <div class="footer-sections">
+            <div>
+                <h1>Informations sur l'entreprise</h1>
+                <ul>
+                    <li><a href="Apropos.html">À propos SeaZenn</a></li>
+                    <li><a href="Partenariats.html">Partenariat</a></li>
+                    <li><a href="confidentialité.html">Confidentialité</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1>Informations de voyage</h1>
+                <ul>
+                    <li><a href="ConditionsTrans.html">Conditions de transport</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1>Actualités et contact</h1>
+                <ul>
+                    <li><a href="NousContacter.html">Nous contacter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <img src="img/logo.png" alt="Logo SeaZen Journeys">
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/181Ag66ex5/"><img src="img/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="img/twitter-icon.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/hanin_sahli?igsh=djNnZ2Y4aDhlcjJ3"><img src="img/instagram-icon.png" alt="Instagram"></a>
+            </div>
+            <p>&copy; 2024 SeaZenn Journeys - All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
